@@ -1,6 +1,6 @@
 namespace Markdown;
 
-public class Md : IRenderer
+public class MarkdownToHTML : IRenderer
 {
     public string Render(string input)
     {
