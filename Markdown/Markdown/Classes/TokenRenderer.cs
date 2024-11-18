@@ -7,9 +7,9 @@ public class TokenRenderer : IRenderer
     private StringBuilder _outputHtml = new StringBuilder();
     public string Render(string input)
     {
-        if (input == null)
+        if (input == null || input == string.Empty)
             return string.Empty;
-        MarkdownMarkdownParser mdMarkdownParser = new MarkdownMarkdownParser();
+        MarkdownParser mdMarkdownParser = new MarkdownParser();
         ConvertTokensToHtml(mdMarkdownParser.ParseTokens(input));
         return _outputHtml.ToString();
     }
@@ -35,6 +35,9 @@ public class TokenRenderer : IRenderer
                     break;
             }
         }
+        if(_outputHtml[_outputHtml.Length - 1] == '\n' || _outputHtml[_outputHtml.Length - 1] == ' ')
+            _outputHtml.Remove(_outputHtml.Length - 1, 1);
+        _outputHtml.Replace("\n", "<br>");
     }
 
     public void AppendHeader(MdToken token)

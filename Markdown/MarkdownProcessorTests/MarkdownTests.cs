@@ -13,10 +13,10 @@ public class Tests
     }
     
     [Test]
-    public void ConvertToHtml_Mixed_ReturnsCorrectHtml()a
+    public void ConvertToHtml_Mixed_ReturnsCorrectHtml()
     {
         string actual = md.ConvertMarkdownToHtml("# Я - Эмир\nПривет я Эмир, я не __жирный__ и не _кривой_");
-        string expected = "<h1>Я - Эмир</h1>\nПривет я Эмир, я не <strong>жирный</strong> и не <em>кривой</em> ";
+        string expected = "<h1>Я - Эмир</h1><br>Привет я Эмир, я не <strong>жирный</strong> и не <em>кривой</em>";
 
         Assert.AreEqual(expected, actual);
     }
@@ -45,7 +45,7 @@ public class Tests
         string markdown = "# Heading";
         string actual = md.ConvertMarkdownToHtml(markdown);
         
-        Assert.AreEqual("<h1>Heading</h1>\n", actual);
+        Assert.AreEqual("<h1>Heading</h1>", actual);
     }
 
     [Test]
@@ -54,7 +54,7 @@ public class Tests
         string markdown = "__Bold Text__";
         string actual = md.ConvertMarkdownToHtml(markdown);
 
-        Assert.AreEqual("<strong>Bold Text</strong> ", actual);
+        Assert.AreEqual("<strong>Bold Text</strong>", actual);
     }
 
     [Test]
@@ -63,7 +63,7 @@ public class Tests
         string markdown = "_Italic Text_";
         string actual = md.ConvertMarkdownToHtml(markdown);
 
-        Assert.AreEqual("<em>Italic Text</em> ", actual);
+        Assert.AreEqual("<em>Italic Text</em>", actual);
     }
 
     [Test]
@@ -72,7 +72,7 @@ public class Tests
         string markdown = "# Header\nThis is __bold__ and _italic_ text";
         string actual = md.ConvertMarkdownToHtml(markdown);
         
-        string expectedHtml = "<h1>Header</h1>\nThis is <strong>bold</strong> and <em>italic</em> text ";
+        string expectedHtml = "<h1>Header</h1><br>This is <strong>bold</strong> and <em>italic</em> text";
         Assert.AreEqual(expectedHtml, actual);
     }
 }

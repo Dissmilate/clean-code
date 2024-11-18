@@ -1,7 +1,7 @@
 using System;
 namespace Markdown;
 
-public class MarkdownMarkdownParser : IMarkdownParser
+public class MarkdownParser : IMarkdownParser
 {
     public List<MdToken> TokensList = new List<MdToken>();
     public string Input;
