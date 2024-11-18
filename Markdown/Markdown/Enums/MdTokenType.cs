@@ -8,4 +8,5 @@ public enum MdTokenType
     BoldAndItalic,
     LineBreak,
     Heading,
+    Escaping
 }

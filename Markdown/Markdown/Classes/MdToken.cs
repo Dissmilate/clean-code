@@ -1,19 +1,51 @@
+using System.Text;
+
 namespace Markdown;
 
 public class MdToken
-{
-    private MdTokenType _tokenType;
-    private MdToken _content;
+{ 
+    private StringBuilder _content = new StringBuilder();
+    private MdToken _token;
+    bool isOpened = false;
+    public MdTokenType Type;
 
-    public MdToken(MdTokenType tokenType, MdToken content)
+    public MdToken()
     {
-        _tokenType = tokenType;
-        _content = content;
     }
 
-    public MdToken(string content)
+    public MdToken(MdTokenType type)
     {
-        _tokenType = MdTokenType.Text;
-        _content = new MdToken(MdTokenType.Text, new MdToken(content));
+        Type = type;
     }
+
+    public MdToken(MdToken token)
+    {
+        _token = token;
+    }
+
+    public void AddContent(char ch)
+    {
+        _content.Append(ch);
+    }
+
+    public void ClearContent()
+    {
+        _content.Clear();
+    }
+
+    public bool IsNull()
+    {
+        return _content.Length == 0;
+    }
+
+    public void InsertContent(int index, char ch)
+    {
+        _content.Insert(0, ch);
+    }
+
+    public StringBuilder GetContent()
+    {
+        return _content;
+    }
+    
 }

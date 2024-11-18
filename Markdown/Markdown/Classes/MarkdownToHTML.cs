@@ -1,11 +1,10 @@
 namespace Markdown;
 
-public class MarkdownToHTML : IRenderer
+public class MarkdownToHTML
 {
-    public string Render(string input)
+    public string ConvertMarkdownToHtml(string input)
     {
-        if (input == null)
-            return null;
-        return input;
+        TokenRenderer mdToHtmlRenderer = new TokenRenderer();
+        return mdToHtmlRenderer.Render(input);
     }
 }
