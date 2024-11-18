@@ -4,6 +4,8 @@ public class MarkdownToHTML : IRenderer
 {
     public string Render(string input)
     {
-        throw new NotImplementedException();
+        if (input == null)
+            return null;
+        return input;
     }
 }
