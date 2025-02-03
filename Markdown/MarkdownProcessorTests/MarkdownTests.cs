@@ -15,8 +15,8 @@ public class Tests
     [Test]
     public void ConvertToHtml_Mixed_ReturnsCorrectHtml()
     {
-        string actual = md.ConvertMarkdownToHtml("# Я - Эмир\nПривет я Эмир, я не __жирный__ и не _кривой_");
-        string expected = "<h1>Я - Эмир</h1><br>Привет я Эмир, я не <strong>жирный</strong> и не <em>кривой</em>";
+        string actual = md.ConvertMarkdownToHtml("# Я - Эмир\nПривет я Эмир, __жирный текст__ и _кривой текст_");
+        string expected = "<h1>Я - Эмир</h1><br>Привет я Эмир, <strong>жирный текст</strong> и <em>кривой текст</em>";
 
         Assert.AreEqual(expected, actual);
     }
